@@ -67,7 +67,7 @@ def predict():
     except:
         link = np.nan
 
-    print(link)
+    #print(link)
 
     if link is not np.nan:
         url = formaturl(link)
@@ -75,12 +75,12 @@ def predict():
         article.download()
         article.parse()
         if article.text != "":
-            print(url,"success")
+            #print(url,"success")
             article = article.text
     else:
         article = request.form['newstext']
 
-    print(article)
+    #print(article)
 
     # split into words
     tokens = word_tokenize(article)
@@ -119,4 +119,4 @@ def predict():
     return render_template('frontpage.html', urlgiven = link, articletext = article, pclass = predclass, pprob = round(predprob,2))
 
 if __name__ == "__main__":
-    app.run(host='127.0.0.1',port=5000, debug = True)
+    app.run(debug = True)
