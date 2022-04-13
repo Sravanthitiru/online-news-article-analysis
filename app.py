@@ -116,7 +116,7 @@ def predict():
     # store to file
     plt.savefig("static/cloud.png", format="png")
     
-    return render_template('frontpage.html', urlgiven = link, articletext = article, pclass = predclass, pprob = round(predprob,2))
+    return render_template('frontpage.html', urlgiven = link, articletext = article, pclass = predclass[0], pprob = round(predprob,2), percent = '%')
 
 if __name__ == "__main__":
     app.run(debug = True)
